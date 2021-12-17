@@ -1,0 +1,9 @@
+_BASE_: "../base-faiss.yaml"
+DATA:
+  NAME: "StandfordCars"
+  NUMBER_CLASSES: 196
+  MULTILABEL: False
+  FEATURE: "imagenet_supervised"  # need to tune
+MODEL:
+  TYPE: "joint"
+  WEIGHT_PATH: ""

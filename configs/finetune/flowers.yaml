@@ -1,0 +1,18 @@
+_BASE_: "../base-finetune.yaml"
+RUN_N_TIMES: 5
+DATA:
+  NAME: "OxfordFlowers"
+  NUMBER_CLASSES: 102
+  MULTILABEL: False
+  FEATURE: "imagenet_supervised"  # need to tune
+MODEL:
+  TYPE: "base"
+  KNN_LAMBDA: 0.1
+DSTORE:
+  TOPK: 16
+  TEMP: 0.1
+SOLVER:
+  BASE_LR: 0.001
+  WEIGHT_DECAY: 0.0001
+  TOTAL_EPOCH: 300
+  LOG_EVERY_N: 10

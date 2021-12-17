@@ -1,0 +1,9 @@
+_BASE_: "../base-faiss.yaml"
+DATA:
+  NAME: "OxfordFlowers"
+  NUMBER_CLASSES: 102
+  MULTILABEL: False
+  FEATURE: "imagenet_supervised"  # need to tune
+MODEL:
+  TYPE: "joint"
+  WEIGHT_PATH: ""

@@ -1,0 +1,32 @@
+NUM_GPUS: 1
+NUM_SHARDS: 1
+OUTPUT_DIR: ""
+RUN_N_TIMES: 1
+MODEL:
+  FROZEN: True
+  TYPE: "joint"
+  KNN_LAMBDA: 0.5
+  LINEAR:
+    MLP_SIZES: []
+DSTORE:
+  TOPK: 16
+  TOPK_TYPE: None
+  FEATUREMAP_POOL: "max"
+  INDEX_FOLDER: ""
+SOLVER:
+  SCHEDULER: "cosine"
+  PATIENCE: 300
+  LOSS: "softmax"
+  OPTIMIZER: "sgd"  # or "adamw"
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.0001
+  LOG_EVERY_N: 1
+  LR_DECAY_SCHEDULE: [100, 200]  # for decay
+  WARMUP_EPOCH: 10
+  TOTAL_EPOCH: 100
+DATA:
+  NAME: ""
+  NUMBER_CLASSES: -1
+  DATAPATH: ""
+  FEATURE: "imagenet_supervised"
+  BATCH_SIZE: 2048

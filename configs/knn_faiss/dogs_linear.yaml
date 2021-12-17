@@ -1,0 +1,10 @@
+_BASE_: "../base-faiss.yaml"
+RUN_N_TIMES: 5
+DATA:
+  NAME: "StandfordDogs"
+  NUMBER_CLASSES: 120
+  MULTILABEL: False
+  FEATURE: "imagenet_supervised"  # need to tune
+MODEL:
+  TYPE: "joint"
+  WEIGHT_PATH: ""

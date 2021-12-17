@@ -1,0 +1,11 @@
+_BASE_: "../base-faiss.yaml"
+DATA:
+  NAME: "CUB"
+  NUMBER_CLASSES: 2
+  MULTILABEL: False
+  BATCH_SIZE: 1024
+  DATAPATH: ""
+  NO_TEST: True
+MODEL:
+  TYPE: "linear_joint"
+  WEIGHT_PATH: ""

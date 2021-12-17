@@ -1,0 +1,18 @@
+_BASE_: "../base-linear.yaml"
+RUN_N_TIMES: 5
+DATA:
+  NAME: "CUB"
+  NUMBER_CLASSES: 2
+  MULTILABEL: False
+  BATCH_SIZE: 1024
+  DATAPATH: ""
+  NO_TEST: True
+MODEL:
+  TYPE: "linear_joint"
+  KNN_LAMBDA: 0.1
+DSTORE:
+  RETURN_PROBS: False
+  TOPK: 16
+SOLVER:
+  BASE_LR: 0.1
+  WEIGHT_DECAY: 0.01

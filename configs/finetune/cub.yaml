@@ -1,0 +1,17 @@
+_BASE_: "../base-finetune.yaml"
+RUN_N_TIMES: 1
+DATA:
+  NAME: "CUB"
+  NUMBER_CLASSES: 200
+  MULTILABEL: False
+  FEATURE: "imagenet_supervised"  # need to tune
+MODEL:
+  TYPE: "base"
+  KNN_LAMBDA: 0.1
+DSTORE:
+  TOPK: 16
+  TEMP: 0.07
+SOLVER:
+  BASE_LR: 0.00375
+  WEIGHT_DECAY: 0.01
+  LOG_EVERY_N: 10
