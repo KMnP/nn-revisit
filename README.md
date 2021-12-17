@@ -25,9 +25,9 @@ In current version, you need to modify each data file under `knn/data/finetune/*
 
 The numerical experiment results with corresponding hyper-parameters can be found here:
 
-- Natural world binary classification: [linear eval](https://drive.google.com/file/d/1ePNkIgqWzAgOZgzP394X2lv1Z8tJzXih/view?usp=sharing)
-- Fine-grained object classification: [linear eval](https://drive.google.com/file/d/12Hzlc3WprVceorqIFUANVS4C9iVf9G57/view?usp=sharing)  [fine-tune](https://drive.google.com/file/d/1KylKHl1w9OK5d8NISa1sQnm9Rz_cyUMd/view?usp=sharing)
-- ImageNet classification: [linear eval](https://drive.google.com/file/d/1vt-4G-JSHpGr2vK6cCUi5dttvFKsTman/view?usp=sharing)
+- Natural world binary classification: [linear-eval](https://drive.google.com/file/d/1ePNkIgqWzAgOZgzP394X2lv1Z8tJzXih/view?usp=sharing)
+- Fine-grained object classification: [linear-eval](https://drive.google.com/file/d/12Hzlc3WprVceorqIFUANVS4C9iVf9G57/view?usp=sharing),  [fine-tune](https://drive.google.com/file/d/1KylKHl1w9OK5d8NISa1sQnm9Rz_cyUMd/view?usp=sharing)
+- ImageNet classification: [linear-eval](https://drive.google.com/file/d/1vt-4G-JSHpGr2vK6cCUi5dttvFKsTman/view?usp=sharing)
 
 To use the code in this repo, here are some key configs:
 
