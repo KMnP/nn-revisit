@@ -1,5 +1,6 @@
 # Rethinking Nearest Neighbors for Visual Classification
 
+[arXiv](https://arxiv.org/abs/2112.08459)
 
 ## Environment settings
 
