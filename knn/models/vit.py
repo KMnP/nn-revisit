@@ -50,8 +50,6 @@ class ViT(nn.Module):
 
         if imagenet:
             return x
-        # convert to softmax
-        # x = F.softmax(x)
         return {"probs": x}
 
     def get_features(self, x):
@@ -61,10 +59,8 @@ class ViT(nn.Module):
 
 
 class ViTJOINT(ViT):
-    # may not need this since jointly train probs is not good enough
     def __init__(self, cfg, dstore):
         super(ViTJOINT, self).__init__(cfg, dstore)
-        # self.coeff = torch.nn.Parameter(torch.tensor(cfg.MODEL.KNN_LAMBDA))
         self.coeff = torch.tensor(cfg.MODEL.KNN_LAMBDA)
         self.dstore = dstore
         self.dstore_return_probs = cfg.DSTORE.RETURN_PROBS
@@ -136,7 +132,6 @@ class ViTJOINT(ViT):
         return self._get_features(x, image_ids)
 
     def get_base_probs(self, x):
-        # return F.softmax(self.head(x))
         return self.head(x)
 
     def get_knn_probs(self, knn_x, image_ids):
@@ -164,7 +159,6 @@ class ViTJOINT(ViT):
             knn_x = self.dstore(knn_x, image_ids)
             if self.knn_head is not None:
                 knn_probs = self.knn_head(knn_x)
-                # knn_probs = F.softmax(self.knn_head(knn_x))
                 base_probs = self.get_base_probs(x)
                 probs = combine_knn_and_linear_probs(
                     knn_probs, base_probs, self.coeff, self.activation)

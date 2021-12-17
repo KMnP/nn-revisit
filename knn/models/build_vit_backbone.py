@@ -11,17 +11,10 @@ MODEL_ZOO = {
     "swint_imagenet_ssl": "moby_swin_t_300ep_pretrained.pth",
     "swins_imagenet": "swin_small_patch4_window7_224.pth",
     "swinb_imagenet_224": "swin_base_patch4_window7_224.pth",
-    "swinb_imagenet_384": "swin_base_patch4_window12_384.pth",
     "swinb_imagenet22k_224":  "swin_base_patch4_window7_224_22k.pth",
-    "swinb_imagenet22k_384": "swin_base_patch4_window12_384_22k.pth",
     "swinl_imagenet22k_224": "swin_large_patch4_window7_224_22k.pth",
-    "sup_vitb8": "ViT-B_8.npz",
     "sup_vitb16_224": "ViT-B_16-224.npz",
-    "sup_vitb16": "ViT-B_16.npz",
     "sup_vitl16_224": "ViT-L_16-224.npz",
-    "sup_vitl16": "ViT-L_16.npz",
-    "sup_vitb16_imagenet22k": "imagenet22k_ViT-B_16.npz",
-    "sup_vitl16_imagenet22k": "imagenet22k_ViT-L_16.npz",
 }
 
 
@@ -51,23 +44,6 @@ def build_mocov3_model(model_type):
 
 
 def build_xcit_model(model_type):
-    # "dino_xcit_small_12_p16": 384
-    # "sup_xcit_small_12_p16": 384
-    # "sup_xcit_small_12_p16_dist": 384
-
-    # "dino_xcit_small_12_p8": 384
-    # "sup_xcit_small_12_p8": 384
-    # "sup_xcit_small_12_p8_dist": 384
-
-    # "dino_xcit_medium_24_p16": 512
-    # "sup_xcit_medium_24_p16": 512
-    # "sup_xcit_medium_24_p16_dist": 512
-
-    # "dino_xcit_medium_24_p8": 512
-    # "sup_xcit_medium_24_p8": 512
-    # "sup_xcit_medium_24_p8_dist": 512
-
-    #
     if "xcit_small_12_p16" in model_type:
         model =torch.hub.load(
             'facebookresearch/dino:main', 'dino_xcit_small_12_p16')
@@ -273,13 +249,7 @@ def build_swin_model(model_type, crop_size):
 def build_dino_models(model_type):
     m2featdim = {
         'dino_vits16': 384,
-        'dino_vits8': 384,
         'dino_vitb16': 768,
-        'dino_vitb8': 768,
-        # 'dino_xcit_small_12_p16',
-        # 'dino_xcit_small_12_p8',
-        # 'dino_xcit_medium_24_p16',
-        # 'dino_xcit_medium_24_p8',
         'dino_resnet50': 2048,
     }
 
@@ -297,8 +267,6 @@ def build_vit_sup_models(model_type, crop_size):
         "sup_vitb16": 768,
         "sup_vitl16_224": 1024,
         "sup_vitl16": 1024,
-        "sup_vitb16_imagenet22k": 768,
-        "sup_vitl16_imagenet22k": 1024,
     }
     model = VisionTransformer(model_type, crop_size, num_classes=-1)
     model.load_from(np.load(os.path.join(MODEL_ROOT, MODEL_ZOO[model_type])))

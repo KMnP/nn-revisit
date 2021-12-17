@@ -23,16 +23,24 @@ In current version, you need to modify each data file under `knn/data/finetune/*
 
 ## Experiments
 
-Some key configs:
+The numerical experiment results with corresponding hyper-parameters can be found here:
 
-- DATA.FEATURE: specify which representation to use
-- DATA.BATCH_SIZE: ViT-based backbone requires a smaller batchsize
-- RUN_N_TIMES: ensure only run once in case duplicated submision 
-- MODEL.TYPE: base or joint training
-- OUTPUT_DIR: output dir of the final model and logs
-- SOLVER.BASE_LR: learning rate for the experiment
-- SOLVER.WEIGHT_DECAY: weight decay value for the experiment
-- MODEL.KNN_LAMBDA: alpha in Eq 4
+- Natural world binary classification: [linear eval](https://drive.google.com/file/d/1ePNkIgqWzAgOZgzP394X2lv1Z8tJzXih/view?usp=sharing)
+- Fine-grained object classification: [linear eval](https://drive.google.com/file/d/12Hzlc3WprVceorqIFUANVS4C9iVf9G57/view?usp=sharing)  [fine-tune](https://drive.google.com/file/d/1KylKHl1w9OK5d8NISa1sQnm9Rz_cyUMd/view?usp=sharing)
+- ImageNet classification: [linear eval](https://drive.google.com/file/d/1vt-4G-JSHpGr2vK6cCUi5dttvFKsTman/view?usp=sharing)
+
+To use the code in this repo, here are some key configs:
+
+- `DATA.FEATURE`: specify which representation to use. [FEATURES.md](https://github.com/KMnP/nn-revisit/blob/master/FEATURES.md) includes more details
+- `DATA.BATCH_SIZE`: ViT-based backbone requires a smaller batchsize
+- `RUN_N_TIMES`: ensure only run once in case duplicated submision 
+- `MODEL.TYPE`: base or joint training
+- `OUTPUT_DIR`: output dir of the final model and logs
+- `SOLVER.BASE_LR`: learning rate for the experiment
+- `SOLVER.WEIGHT_DECAY`: weight decay value for the experiment
+- `MODEL.KNN_LAMBDA`: alpha in Eq 4
+
+
 
 ### Linear evaluation
 

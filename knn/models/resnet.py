@@ -273,8 +273,6 @@ def build_knn_fmappool(cfg):
 class ResNet50JOINT(ResNet50):
     def __init__(self, cfg, dstore):
         super(ResNet50JOINT, self).__init__(cfg, dstore)
-        # self.coeff = torch.nn.Parameter(torch.tensor(cfg.MODEL.KNN_LAMBDA))
-        # add
         knn_model_type = cfg.DATA.DSTORE_FEATURE
         if len(knn_model_type) > 0:
             try:
@@ -367,7 +365,7 @@ class ResNet50JOINT(ResNet50):
                 knn_x = knn_x.view(knn_x.size(0), -1)
             else:
                 knn_x = featmaps
-            # # add back to the cache TODO: add one method to save all features
+            # # add back to the cache
             if self.use_cache:
                 for i in range(len(image_ids)):
                     # (1, num_classes)
@@ -386,7 +384,6 @@ class ResNet50JOINT(ResNet50):
         return self._get_features(x, image_ids)
 
     def get_base_probs(self, x):
-        # return F.softmax(self.head(x))
         return self.head(x)
 
     def get_knn_probs(self, knn_x, image_ids):
